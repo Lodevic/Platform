@@ -1,0 +1,34 @@
+
+    body{
+        background-image:url(ppp.jpg) ;
+        background-position: center;
+        background-size: cover;
+    }
+    @keyframes shake {
+        0%, 100% {
+            transform: translateX(0);
+        }
+        25% {
+            transform: translateX(-25px);
+        }
+        50% {
+            transform: translateX(50px);
+        }
+        75% {
+            transform: translateX(-50px);
+        }
+    }
+    .BijiKopi{
+            animation: shake 20s infinite alternate;
+            padding: auto;
+            display: flex;
+            align-items: center;
+            margin:  20px 100px; 
+            width: auto;
+}
+    
+    h1 {
+        color:rgb(0, 0, 0);
+    }
+
+    
