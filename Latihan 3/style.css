@@ -1,6 +1,6 @@
 
     body{
-        background-image:url(ppp.jpg) ;
+        background-image:url(putihwall.jpg) ;
         background-position: center;
         background-size: cover;
     }
@@ -23,12 +23,22 @@
             padding: auto;
             display: flex;
             align-items: center;
-            margin:  20px 100px; 
-            width: auto;
+            margin:  20px 130px; 
+            height: auto;
+            width: 300px; 
+            
+    
 }
     
     h1 {
         color:rgb(0, 0, 0);
     }
+
+   
+img:hover {
+    transform: scale(1.2); 
+    transition: transform 0.5s ease; 
+}
+
 
     
