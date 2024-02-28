@@ -1,44 +1,68 @@
-
-    body{
-        background-image:url(putihwall.jpg) ;
-        background-position: center;
-        background-size: cover;
-    }
-    @keyframes shake {
-        0%, 100% {
-            transform: translateX(0);
-        }
-        25% {
-            transform: translateX(-25px);
-        }
-        50% {
-            transform: translateX(50px);
-        }
-        75% {
-            transform: translateX(-50px);
-        }
-    }
-    .BijiKopi{
-            animation: shake 20s infinite alternate;
-            padding: auto;
-            display: flex;
-            align-items: center;
-            margin:  20px 130px; 
-            height: auto;
-            width: 300px; 
-            
-    
-}
-    
-    h1 {
-        color:rgb(0, 0, 0);
-    }
-
-   
-img:hover {
-    transform: scale(1.2); 
-    transition: transform 0.5s ease; 
+*,
+html{
+    margin: 0;
+    padding: 0;
 }
 
+body {
+  background-image: url(putihwall.jpg);
+  background-position: center;
+  background-size: cover;
+}
 
+h1 {
+  color: rgb(0, 0, 0);
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-25px);
+  }
+  50% {
+    transform: translateX(50px);
+  }
+  75% {
+    transform: translateX(-50px);
+  }
+}
+
+#Fotoataskopi{
+  
+  width: 100%;
+  margin-top: -36px ;
+}
+
+.BijiKopi {
+  animation: shake 20s infinite alternate;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#fotoKOpi:hover {
+  transform: scale(1.2);
+  transition: transform 0.5s ease;
+}
+
+.Kopipengantar{
+  margin: 30px;
+}
+
+.KopiMerapi{
+    margin : 50px;
+}
+
+.JenisKopi{
+  margin : 50px;
+}
+}
+  
+  
     
+  
+  
