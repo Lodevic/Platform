@@ -1,7 +1,7 @@
 *,
-html{
-    margin: 0;
-    padding: 0;
+html {
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -30,10 +30,9 @@ h1 {
   }
 }
 
-#Fotoataskopi{
-  
+#Fotoataskopi {
   width: 100%;
-  margin-top: -36px ;
+  margin-top: -36px;
 }
 
 .BijiKopi {
@@ -46,23 +45,66 @@ h1 {
 
 #fotoKOpi:hover {
   transform: scale(1.2);
-  transition: transform 0.5s ease;
+  transition: transform 0.3s ease;
 }
 
-.Kopipengantar{
+.Kopipengantar {
   margin: 30px;
 }
 
-.KopiMerapi{
-    margin : 50px;
+.JenisKopi {
+  margin: 50px;
 }
 
-.JenisKopi{
-  margin : 50px;
+.KopiMerapi {
+  margin: 50px;
 }
+
+#KopiMerapi:hover {
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
 }
-  
-  
-    
-  
-  
+
+#KopiMerapi1:hover {
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
+}
+
+.Circa90Cafe {
+  margin: 50px;
+}
+
+#Circa90Cafe:hover {
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
+}
+
+#Circa90Cafe1:hover {
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
+}
+
+#Circa90Cafe2:hover {
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
+}
+
+#Circa90Cafe3:hover {
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
+}
+
+#Circa90Cafe4:hover {
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
+}
+
+#Circa90Cafe5:hover {
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
+}
+
+#Fotoabawahkopi {
+  width: 100%;
+  margin-bottom: -100px;
+}
