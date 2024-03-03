@@ -5,14 +5,17 @@ html {
 }
 
 body {
-  background-image: url(putihwall.jpg);
+  background-image: url(coklatwall.jpg);
   background-position: center;
   background-size: cover;
 }
 
+
+
 h1 {
-  color: rgb(0, 0, 0);
+  color: rgb(253, 247, 247);
 }
+
 
 @keyframes shake {
   0%,
@@ -33,6 +36,18 @@ h1 {
 #Fotoataskopi {
   width: 100%;
   margin-top: -36px;
+}
+
+.Judul{
+  margin: 20px;
+}
+
+header {
+  background-image: url(Bijikopihead.jpg);
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  width:  100%;
 }
 
 .BijiKopi {
@@ -107,4 +122,19 @@ h1 {
 #Fotoabawahkopi {
   width: 100%;
   margin-bottom: -100px;
+}
+
+.Bio{
+  float: right;
+  margin-right: 55px;
+}
+
+footer {
+  background-image: url(putihwall.jpg);
+  color: black;
+  text-align: center;
+  padding: 5px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
