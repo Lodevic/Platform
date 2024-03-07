@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pilihan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Form Pilihan</h2>
+        <form id="main-form">
+            <div class="form-group">
+                <label for="nama">Nama :</label>
+                <input type="text" id="nama" name="nama" required>
+            </div>
+            <div class="form-group">
+                <label for="jumlah">Jumlah Pilihan :</label>
+                <input type="number" id="jumlah" name="jumlah" min="1" required>
+            </div>
+            <div class="options"></div>
+            <input type="button" id="submitBtn" value="OK">
+        </form>
+
+        <div class="message"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
