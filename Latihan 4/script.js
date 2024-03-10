@@ -50,6 +50,7 @@ document.getElementById('submitBtn').addEventListener('click', function() {
 
             var pilihanSelect = document.createElement('select');
             pilihanSelect.name = 'pilihan';
+            pilihanSelect.id = 'selectedOption'; // Menambahkan id ke dropdown
 
             // Menambahkan opsi ke dalam dropdown
             selectedOptions.forEach(function(optionValue) {
@@ -65,10 +66,14 @@ document.getElementById('submitBtn').addEventListener('click', function() {
             var messageDiv = document.querySelector('.message');
             var nama = document.getElementById('nama').value;
             var jml = jumlah;
-            var pilihan = pilihanSelect.value;
-            var message = "Hallo, nama saya " + nama + ", saya mempunyai sejumlah " + jml + " pilihan yaitu " + selectedOptions.join(", ") + ", dan saya memilih " + pilihan;
-            messageDiv.textContent = message;
-            messageDiv.style.display = 'block'; // Menampilkan pesan
+
+            // Menambahkan event listener untuk tombol Submit di dalam tombol "Submit" sebelumnya
+            pilihanSelect.addEventListener('change', function() {
+                var selectedOption = this.value; // Mengambil nilai yang dipilih dari dropdown
+                var message = "Hallo, nama saya " + nama + ", saya mempunyai sejumlah " + jml + " pilihan yaitu " + selectedOptions.join(", ") + ", dan saya memilih " + selectedOption;
+                messageDiv.textContent = message;
+                messageDiv.style.display = 'block'; // Menampilkan pesan
+            });
 
             // Menambahkan tombol untuk memperbarui halaman
             var reloadButton = document.createElement('button');
@@ -81,4 +86,8 @@ document.getElementById('submitBtn').addEventListener('click', function() {
             alert('Silakan isi semua teks pilihan terlebih dahulu.');
         }
     });
+    var refreshButton = document.getElementById('refreshBtn');
+refreshButton.addEventListener('click', function() {
+    location.reload(); // Memuat ulang halaman
+});
 });
