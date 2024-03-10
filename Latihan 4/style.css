@@ -2,13 +2,39 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-image: url(Foto/ppp.jpg);
+  background-position: center;
+  background-size: cover;
 }
 
-header{
+header {
     text-align: center;
-    padding: 20px ;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 10px;
 }
+
+h1 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile h2 {
+    margin: 5px 0;
+    color: #555;
+}
+
+.profile img {
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
 
 .container {
     max-width: 600px;
@@ -38,19 +64,23 @@ input[type="number"] {
 }
 
 input[type="submit"],
-input[type="button"] {
-    background-color: #4CAF50;
-    color: white;
+input[type="button"],
+button {
+    background-color: #e3a6a6;
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-bottom: 15px; /* Menambahkan margin bawah */
+    display: block; /* Agar tombol berada di tengah */
+    margin: 0 auto; /* Agar tombol berada di tengah */
 }
 
 input[type="submit"]:hover,
-input[type="button"]:hover {
-    background-color: #a09745;
+input[type="button"]:hover,
+button:hover {
+    background-color: #e3a6a6;
 }
 
 .options {
@@ -89,5 +119,10 @@ input[type="button"]:hover {
 }
 
 .message.show {
-    display: block; /* Mengubah display menjadi block untuk menampilkan pesan */
+    display: block;
 }
+
+#refreshBtn {
+    margin-bottom: 100px;
+}
+

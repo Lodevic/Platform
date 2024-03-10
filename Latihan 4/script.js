@@ -1,5 +1,21 @@
 document.getElementById('submitBtn').addEventListener('click', function() {
+    // Menambahkan tombol refresh halaman sebelum menghapus input sebelumnya
+    var refreshButton = document.getElementById('refreshBtn');
+    if (!refreshButton) {
+        refreshButton = document.createElement('button');
+        refreshButton.textContent = 'Refresh Halaman';
+        refreshButton.id = 'refreshBtn';
+        document.body.appendChild(refreshButton);
+    }
+    
     var jumlah = parseInt(document.getElementById('jumlah').value);
+
+    // Validasi jika input bukan bilangan bulat atau lebih kecil dari 1
+    if (isNaN(jumlah) || jumlah < 1 || !Number.isInteger(jumlah)) {
+        alert('Silakan masukkan jumlah pilihan dalam bilangan bulat yang lebih besar dari 0.');
+        return;
+    }
+
     var optionsDiv = document.querySelector('.options');
     optionsDiv.innerHTML = '';
 
@@ -76,18 +92,11 @@ document.getElementById('submitBtn').addEventListener('click', function() {
             });
 
             // Menambahkan tombol untuk memperbarui halaman
-            var reloadButton = document.createElement('button');
-            reloadButton.textContent = 'Refresh Halaman';
-            reloadButton.addEventListener('click', function() {
+            refreshButton.addEventListener('click', function() {
                 location.reload(); // Memuat ulang halaman
             });
-            messageDiv.appendChild(reloadButton);
         } else {
             alert('Silakan isi semua teks pilihan terlebih dahulu.');
         }
     });
-    var refreshButton = document.getElementById('refreshBtn');
-refreshButton.addEventListener('click', function() {
-    location.reload(); // Memuat ulang halaman
-});
 });
