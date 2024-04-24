@@ -1,0 +1,97 @@
+body{
+  min-height: 2000px;
+}
+.jumbotron{
+  padding-top: 7rem ;
+  background-color: #e9c7b9;
+}
+
+.tentang{
+  padding-top: 4rem ;
+  background-color: #e9c7b9;
+}
+
+.kisahku{
+  padding-top: 4rem ;
+  background-color: #e9c7b9;
+}
+
+.pendidikanku{
+  padding-top: 4rem ;
+  background-color: #e9c7b9;
+}
+
+.card {
+  margin: 20px; 
+}
+.card-img-top {
+  transition: transform 0.3s ease;
+}
+
+.card-img-top:hover {
+  transform: scale(1.1);
+}
+
+section{
+  padding-top: 5rem;
+}
+
+.table-bordered {
+  border: 2px solid black; /* Mengatur warna garis tepi menjadi hitam */
+}
+
+.tugas{
+  padding-top: 4rem ;
+  background-color: #e9c7b9;
+}
+
+footer {
+  padding-top: 1rem ;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+
+/* Menerapkan gaya pada tombol */
+button {
+  padding: 10px 20px;
+  background-color: #0c1a29;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Style untuk input */
+input[type="text"],
+input[type="email"],
+input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+/* Hide default number input arrows */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+
