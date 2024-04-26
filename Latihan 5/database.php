@@ -11,7 +11,7 @@ if ($db->connect_error) {
     echo "Connect ERROR";
     die("ERROR");
 }else{
-    echo "Connect OK";
+    echo "Connect OK Aman BROK";
 }
 
 ?>
