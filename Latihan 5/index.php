@@ -1,6 +1,5 @@
 <?php
 include "database.php";
-
 session_start();
 
 if (!isset($_SESSION['login'])) {
@@ -8,27 +7,38 @@ if (!isset($_SESSION['login'])) {
     exit;
 }
 
-if (isset($_SESSION['user_id'])) {
-    $ID = $_SESSION['user_id'];
-    echo $ID;
-}
-
 if (isset($_POST['submit'])) {
     $textlist = $_POST['textList'];
 
     if ($textlist != "") {
-        $sql = "INSERT INTO daftar_kegiatan (id_list,kegiatan,status,id_user) VALUES
-        ('$textlist','simpan',$ID)";
-
-        $result = $db->Query($sql);
+        $sql = "INSERT INTO daftar_kegiatan (kegiatan, status, id_user) VALUES ('$textlist', 'simpan', '{$_SESSION['user_id']}')";
+        $result = $db->query($sql);
     } else {
-        echo "<script>
-        alert('Isi dulu dong');
-    </script>";
+        echo "<script>alert('Isi dulu dong');</script>";
     }
 }
 
+if (isset($_POST['haps'])) {
+    $listDel = $_POST['listdel'];
+
+    $sql = "DELETE FROM daftar_kegiatan WHERE id_list = '$listDel'";
+    $result = $db->query($sql);
+
+    header("Location: index.php");
+    exit();
+}
+
+if (isset($_POST['selesai'])) {
+    $listDel = $_POST['listdel'];
+
+    $sql = "UPDATE daftar_kegiatan SET status = 'Selesai' WHERE id_list = '$listDel'";
+    $result = $db->query($sql);
+
+    header("Location: index.php");
+    exit();
+}
 ?>
+
 <!doctype html>
 <html lang="en">
 
@@ -39,94 +49,13 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 
-    <style>
-        .bungkus {
-            border-radius: 10px;
-            margin-top: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 5px;
-            backdrop-filter: blur(50px);
-            box-shadow: rgb(107, 84, 84) 20px 20px 70px;
-            width: 500px;
-            height: 80px;
-        }
-
-        #daftar {
-            padding: 5px;
-            border-radius: 10px;
-            background-color: blueviolet;
-            font-size: 30px;
-            width: 350px;
-            height: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        form {
-            display: flex;
-
-        }
-
-        #status {
-            width: 50px;
-            height: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        #hapus {
-            width: 50px;
-            height: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        #logout {
-            cursor: pointer;
-            color: white;
-            background-color: black;
-            width: 30px;
-            height: 30px;
-            padding: 5px;
-        }
-
-        #log {
-            display: flex;
-            justify-content: end;
-        }
-    </style>
-
-
-    <title>Hello, world!</title>
+    <title>To Do List</title>
 </head>
 
 <body>
     <section id='todo-page'>
         <div id="page">
             <div id="listpg">
-                <div id="log">
-                    <form action="index.php" method="post">
-                        <button type="submit" id="logbut" name="lo">
-                            <svg id="logout" xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z" />
-                                <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z" />
-                            </svg>
-                        </button>
-                    </form>
-
-                </div>
-
-                <?php
-                if (isset($_POST['lo'])) {
-                    header("Location: logout.php");
-                    exit;
-                }
-                ?>
                 <h1 class="text-center">To Do List</h1>
                 <form action="index.php" method="post">
                     <div class="input-group mb-3 mt-5">
@@ -134,64 +63,44 @@ if (isset($_POST['submit'])) {
                         <button type="submit" class="btn btn-primary ml-2" name="submit">Submit</button>
                     </div>
                 </form>
-            </div>
 
-            <div class="listdaftar">
-                <?php
-                if (isset($ID)) {
-                    $sql = "select id_list,list,status from daftarlist where id_user = '$ID'";
 
-                    $result = $db->Query($sql);
+                <div class="listdaftar">
+                    <?php
+                    $sql = "SELECT id_list, kegiatan, status FROM daftar_kegiatan WHERE id_user = '{$_SESSION['user_id']}'";
+                    $result = $db->query($sql);
 
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
-                ?>
-                            <div class="bungkus" id="bungkus_<?php echo $row["id_list"] ?>">
-                                <?php
-                                if ($row['status'] == 'simpan') {
-                                ?>
-                                    <div id="daftar"><?php echo $row["list"]; ?></div>
-                                    <form action="index.php" method="post">
-                                        <input type="hidden" name="listdel" value="<?php echo $row['id_list']; ?>">
-                                        <button type="submit" class="btn btn-primary ml-2" name="selesai" id="status">Selesai</button>
-                                        <button type="submit" class="btn btn-primary ml-2" name="haps" id="hapus">Hapus</button>
-                                    </form>
-                                <?php
-                                } else if ($row['status'] == 'Selesai') {
-                                ?>
-                                    <div id="daftar"><del><?php echo $row["list"]; ?></del></div>
-                                    <form action="index.php" method="post">
-                                        <input type="hidden" name="listdel" value="<?php echo $row['id_list']; ?>">
-                                        <button type="submit" class="btn btn-primary ml-2" name="haps" id="hapus">Hapus</button>
-                                    </form>
-                                <?php
-                                }
-                                ?>
-
-                            </div>
-                <?php
+                            echo '<div class="bungkus" id="bungkus_' . $row["id_list"] . '">';
+                            if ($row['status'] == 'simpan') {
+                                echo '<div id="daftar">' . $row["kegiatan"] . '</div>';
+                                echo '<form action="index.php" method="post">';
+                                echo '<input type="hidden" name="listdel" value="' . $row['id_list'] . '">';
+                                echo '<button type="submit" class="btn btn-primary ml-2" name="selesai">Selesai</button>';
+                                echo '<button type="submit" class="btn btn-primary ml-2" name="haps">Hapus</button>';
+                                echo '</form>';
+                            } else if ($row['status'] == 'Selesai') {
+                                echo '<div id="daftar"><del>' . $row["kegiatan"] . '</del></div>';
+                                echo '<form action="index.php" method="post">';
+                                echo '<input type="hidden" name="listdel" value="' . $row['id_list'] . '">';
+                                echo '<button type="submit" class="btn btn-primary ml-2" name="haps">Hapus</button>';
+                                echo '</form>';
+                            }
+                            echo '</div>';
                         }
                     }
-                }
-                if (isset($_POST['haps'])) {
-                    $listDel = $_POST['listdel'];
+                    ?>
+                </div>
+                <a href="#" onclick="logout()">Logout</a>
 
-                    $sql = "DELETE FROM daftarlist WHERE id_list = '$listDel'";
-                    $result = $db->Query($sql);
-                    echo '<script>window.location.href = "' . $_SERVER['PHP_SELF'] . '";</script>';
-                    exit();
-                }
+                <script>
+                    function logout() {
+                        // Redirect ke logout.php saat tautan logout ditekan
+                        window.location.href = "logout.php";
+                    }
+                </script>
 
-                if (isset($_POST['selesai'])) {
-                    $listDel = $_POST['listdel'];
-
-                    $sql = "UPDATE daftarlist SET status = 'Selesai' WHERE id_list = '$listDel'";
-                    $result = $db->Query($sql);
-
-                    echo '<script>window.location.href = "' . $_SERVER['PHP_SELF'] . '";</script>';
-                    exit();
-                }
-                ?>
             </div>
         </div>
     </section>

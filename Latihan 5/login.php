@@ -19,7 +19,7 @@ if (isset($_POST['login'])) {
         // Verifikasi password
         if (password_verify($password, $row['password'])) {
             $_SESSION['login'] = true;
-            $_SESSION['user_id'] = $row['ID'];
+            $_SESSION['user_id'] = $row['ID']; // Simpan ID pengguna ke dalam sesi
 
             // Redirect ke halaman index setelah login berhasil
             header('location: index.php');
