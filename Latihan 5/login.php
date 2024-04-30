@@ -58,6 +58,14 @@ if (isset($_GET['logout'])) {
     <title>Login</title>
 
     <style>
+        body {
+            background-image: url('foto/wplogin.jpg'); /* Ganti 'background.jpg' dengan nama file gambar Anda */
+            background-size: cover;
+            background-position: center;
+            margin: 0; /* Menghapus margin default dari body */
+            padding: 0; /* Menghapus padding default dari body */
+        }
+
         #link-forgot:hover {
             color: rgb(185, 146, 209);
             text-decoration: none;
