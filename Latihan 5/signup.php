@@ -38,20 +38,30 @@ if (isset($_POST['signup'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Sign Up</title>
 
     <style>
+        body {
+            background-image: url('foto/wpsignup.jpg');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+        }
+
         .Sign-up-container {
             margin: 200px auto;
             width: 300px;
-            height: 400px;
+            height: 300px;
             display: flex;
             flex-direction: column;
             align-items: center;
             backdrop-filter: blur(10px);
             border-radius: 10%;
             box-shadow: 8px 10px 30px rgb(40, 39, 39);
+            background-color: #F5DEB3;
         }
+        
     </style>
 </head>
 
@@ -60,21 +70,17 @@ if (isset($_POST['signup'])) {
         <h1>Sign Up</h1>
         <form action="signUP.php" method="post">
             <div class="login-page">
-                <input type="text" placeholder="Email" id="username" name='username'>
+                <input type="text" placeholder="Username" id="username" name='username'>
                 <div class="username-message"></div>
                 <input type="password" placeholder="Password" id="password" name='password'>
                 <div class="password-message"></div>
                 <input type="password" placeholder="Konfirmasi Password" id="password" name='konpassword'>
-                
-                <button id="button-submit" name='signup'>Sign Up</button>
 
+                <button id="button-submit" name='signup' style="background-color: #d2B48C; color: white;">Sign Up</button>
             </div>
         </form>
     </div>
-
-
-
-
 </body>
 
 </html>
+

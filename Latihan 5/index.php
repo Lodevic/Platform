@@ -98,14 +98,37 @@ if (isset($_POST['selesai'])) {
         </div>
     </div>
 </header>
+<style>
+    #listpg {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Menengahkan secara horizontal */
+    justify-content: center; /* Menengahkan secara vertikal */
+    margin-top: 50px; /* Atur jarak dari bagian atas */
+}
 
+.listdaftar {
+    width: 300px; /* Atur lebar daftar */
+    margin-top: 20px; /* Atur jarak antara daftar dan form input */
+    text-align: center; /* Menengahkan teks di dalam daftar */
+}
+
+a {
+    margin-top: 20px; /* Atur jarak antara link Logout dan daftar */
+}
+
+.logout-link {
+    display: block;
+    text-align: center;
+}
+</style>
 <body>
     <section id='todo-page'>
         <div id="page">
             <div id="listpg">
                 <h1 class="text-center">To Do List</h1>
                 <form action="index.php" method="post">
-                    <div class="input-group mb-3 mt-5">
+                    <div class="input-group mb-2 mt-2">
                         <input type="text" class="form-control" placeholder="Masukan To Do List" name="textList">
                         <button type="submit" class="btn btn-primary ml-2" name="submit">Submit</button>
                     </div>

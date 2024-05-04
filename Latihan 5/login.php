@@ -85,7 +85,7 @@ if (isset($_GET['logout'])) {
                 <div class="username-message"></div>
                 <input type="password" placeholder="Password" id="password" name='password'>
                 <div class="password-message"></div>
-                <button id="button-submit" name='login' style="margin-top: -10px;">Login</button>
+                <button id="button-submit" name='login' ">Login</button>
                 <a id="link-forgot" href="signUP.php">
                     <h5>Sign Up</h5>
                 </a>
