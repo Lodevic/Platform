@@ -61,7 +61,36 @@ if (isset($_POST['signup'])) {
             box-shadow: 8px 10px 30px rgb(40, 39, 39);
             background-color: #F5DEB3;
         }
-        
+
+        .Sign-up-container h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .Sign-up-container input[type="text"],
+        .Sign-up-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .Sign-up-container button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #d2b48c;
+            color: white;
+            cursor: pointer;
+        }
+
+        .Sign-up-container button:hover {
+            background-color: #c39b77;
+        }
     </style>
 </head>
 
@@ -76,11 +105,11 @@ if (isset($_POST['signup'])) {
                 <div class="password-message"></div>
                 <input type="password" placeholder="Konfirmasi Password" id="password" name='konpassword'>
 
-                <button id="button-submit" name='signup' style="background-color: #d2B48C; color: white;">Sign Up</button>
+                <button id="button-submit" name='signup' style="background-color: #d2B48C; color: white;">Sign
+                    Up</button>
             </div>
         </form>
     </div>
 </body>
 
 </html>
-

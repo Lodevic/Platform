@@ -19,7 +19,7 @@ if (isset($_POST['login'])) {
         // Jika hasil query mengembalikan satu baris
         if ($result->num_rows === 1) {
             $row = $result->fetch_assoc();
-            
+
             // Verifikasi password
             if (password_verify($password, $row['password'])) {
                 $_SESSION['login'] = true;
@@ -59,18 +59,83 @@ if (isset($_GET['logout'])) {
 
     <style>
         body {
-            background-image: url('foto/wplogin.jpg'); /* Ganti 'background.jpg' dengan nama file gambar Anda */
+            background-image: url('foto/wplogin.jpg');
             background-size: cover;
             background-position: center;
-            margin: 0; /* Menghapus margin default dari body */
-            padding: 0; /* Menghapus padding default dari body */
+            margin: 0;
+            /* Menghapus margin default dari body */
+            padding: 0;
+            /* Menghapus padding default dari body */
         }
 
         #link-forgot:hover {
             color: rgb(185, 146, 209);
             text-decoration: none;
         }
+
+
+        .login-container {
+            margin: 200px auto;
+            width: 300px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .login-container h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .login-container form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .login-container .error-message {
+            color: #ff0000;
+            margin-bottom: 10px;
+        }
+
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #d2b48c;
+            color: white;
+            cursor: pointer;
+        }
+
+        .login-container button:hover {
+            background-color: #c39b77;
+        }
+
+        #link-forgot {
+            text-decoration: none;
+            color: #666;
+
+            margin-top: 10px;
+        }
+
+        #link-forgot:hover {
+            color: #222;
+        }
     </style>
+
 </head>
 
 <body>
@@ -78,7 +143,7 @@ if (isset($_GET['logout'])) {
         <h1>Login</h1>
         <form action="login.php" method="post">
             <div class="login-page">
-                <?php if (isset($error_message)) : ?>
+                <?php if (isset($error_message)): ?>
                     <div class="error-message"><?php echo $error_message; ?></div>
                 <?php endif; ?>
                 <input type="text" placeholder="Username" id="username" name='username'>
@@ -86,9 +151,9 @@ if (isset($_GET['logout'])) {
                 <input type="password" placeholder="Password" id="password" name='password'>
                 <div class="password-message"></div>
                 <button id="button-submit" name='login' ">Login</button>
-                <a id="link-forgot" href="signUP.php">
+                <a id=" link-forgot" href="signUP.php">
                     <h5>Sign Up</h5>
-                </a>
+                    </a>
             </div>
         </form>
     </div>
