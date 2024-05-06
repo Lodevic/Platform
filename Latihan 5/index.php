@@ -16,20 +16,20 @@ if (isset($_POST['submit'])) {
     if ($textlist != "") {
         // Mencegah SQL Injection
         $textlist = $db->real_escape_string($textlist);
-        
+
         // Mendapatkan user_id dari sesi
         $user_id = $_SESSION['user_id'];
-        
+
         // Menyiapkan pernyataan SQL menggunakan prepared statements
         $sql = "INSERT INTO daftar_kegiatan (kegiatan, status, id_user) VALUES (?, 'simpan', ?)";
         $stmt = $db->prepare($sql);
-        
+
         // Membuat parameter binding
         $stmt->bind_param("si", $textlist, $user_id);
-        
+
         // Menjalankan pernyataan
         $stmt->execute();
-        
+
         // Menutup pernyataan
         $stmt->close();
     } else {
@@ -79,7 +79,8 @@ if (isset($_POST['selesai'])) {
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 
     <title>To Do List</title>
@@ -100,28 +101,93 @@ if (isset($_POST['selesai'])) {
 </header>
 <style>
     #listpg {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Menengahkan secara horizontal */
-    justify-content: center; /* Menengahkan secara vertikal */
-    margin-top: 50px; /* Atur jarak dari bagian atas */
-}
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* Menengahkan secara horizontal */
+        justify-content: center;
+        /* Menengahkan secara vertikal */
+        margin-top: 50px;
+        /* Atur jarak dari bagian atas */
+    }
 
-.listdaftar {
-    width: 300px; /* Atur lebar daftar */
-    margin-top: 20px; /* Atur jarak antara daftar dan form input */
-    text-align: center; /* Menengahkan teks di dalam daftar */
-}
+    .listdaftar {
+        width: 300px;
+        /* Atur lebar daftar */
+        margin-top: 20px;
+        /* Atur jarak antara daftar dan form input */
+        text-align: center;
+        /* Menengahkan teks di dalam daftar */
+    }
 
-a {
-    margin-top: 20px; /* Atur jarak antara link Logout dan daftar */
-}
+    a {
+        margin-top: 20px;
+        /* Atur jarak antara link Logout dan daftar */
+    }
 
-.logout-link {
-    display: block;
-    text-align: center;
-}
+    .logout-link {
+        display: block;
+        text-align: center;
+    }
+
+
+    #page {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+
+    .bungkus {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    #daftar {
+        flex-grow: 1;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+
+    #daftar del {
+        color: #888;
+    }
+
+    .logout-link {
+        margin-top: 20px;
+        display: block;
+        text-align: center;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        border-color: #dc3545;
+    }
+
+    .btn-danger:hover {
+        background-color: #c82333;
+        border-color: #bd2130;
+    }
+
+    .btn-primary,
+    .btn-danger {
+        margin-left: 5px;
+    }
 </style>
+
 <body>
     <section id='todo-page'>
         <div id="page">
@@ -176,8 +242,12 @@ a {
         </div>
     </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
